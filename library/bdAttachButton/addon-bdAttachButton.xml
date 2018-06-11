@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<addon addon_id="bdAttachButton" title="[bd] WYSIWYG toolbar Attach button" version_string="1.0.0" version_id="1000000" url="" install_callback_class="" install_callback_method="" uninstall_callback_class="" uninstall_callback_method="">
+  <admin_navigation/>
+  <admin_permissions/>
+  <admin_style_properties/>
+  <admin_templates/>
+  <admin_template_modifications/>
+  <code_events/>
+  <code_event_listeners>
+    <listener event_id="file_health_check" execute_order="10" callback_class="bdAttachButton_Listener" callback_method="file_health_check" active="1" hint="" description=""/>
+    <listener event_id="load_class_controller" execute_order="10" callback_class="bdAttachButton_Listener" callback_method="load_class_XenForo_ControllerPublic_Attachment" active="1" hint="XenForo_ControllerPublic_Attachment" description="XenForo_ControllerPublic_Attachment"/>
+  </code_event_listeners>
+  <cron/>
+  <email_templates/>
+  <email_template_modifications/>
+  <optiongroups/>
+  <permissions>
+    <permission_groups/>
+    <permissions/>
+    <interface_groups/>
+  </permissions>
+  <phrases/>
+  <route_prefixes/>
+  <style_properties/>
+  <templates/>
+  <public_template_modifications>
+    <modification template="editor_js_setup" modification_key="bdattachbutton_editor_js_setup" description="Include attachment scripts." execution_order="10" enabled="1" action="str_replace">
+      <find><![CDATA[<xen:require js="js/xenforo/bb_code_edit.js" />]]></find>
+      <replace><![CDATA[$0
+
+<xen:require css="attachment_editor.css" />
+<xen:require js="js/bdAttachButton/bb_code_edit.min.js" />
+
+<xen:if is="{$xenOptions.useHtml5Uploader}">
+	<xen:require js="js/xenforo/attachment_editor_new.js" />
+<xen:else />
+	<xen:require js="js/xenforo/attachment_editor.js" />
+</xen:if>]]></replace>
+    </modification>
+  </public_template_modifications>
+  <bb_code_media_sites/>
+  <bb_codes/>
+</addon>
