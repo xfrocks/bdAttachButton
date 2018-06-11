@@ -25,7 +25,7 @@
 
     var registerCustomButton = function (buttonsCustom, editor) {
         buttonsCustom[buttonId] = {
-            title: editor.getText('bdAttachButton_attach', 'Attach'),
+            title: editor.getText('bdAttachButton_attach'),
             callback: function () {
                 return getAttachModal(editor);
             }
@@ -107,7 +107,7 @@
         ed.saveSelection();
 
         ed.modalInit(
-            editor.getText('bdAttachButton_attach', 'Attach'),
+            editor.getText('bdAttachButton_attach'),
             {url: uploadUrl + '&bdAttachButton_modal=1'},
             600,
             onModalInit

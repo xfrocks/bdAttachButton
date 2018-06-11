@@ -19,12 +19,19 @@
     <permissions/>
     <interface_groups/>
   </permissions>
-  <phrases/>
+  <phrases>
+    <phrase title="bdAttachButton_attach" version_id="1000000" version_string="1.0.0"><![CDATA[Attach]]></phrase>
+  </phrases>
   <route_prefixes/>
   <style_properties/>
   <templates/>
   <public_template_modifications>
-    <modification template="editor_js_setup" modification_key="bdattachbutton_editor_js_setup" description="Include attachment scripts." execution_order="10" enabled="1" action="str_replace">
+    <modification template="editor_js_setup" modification_key="bdattachbutton_editor_js_setup_phrases" description="Include our phrases." execution_order="10" enabled="1" action="str_replace">
+      <find><![CDATA[RELANG.xf = {]]></find>
+      <replace><![CDATA[$0
+	bdAttachButton_attach: "{xen:jsescape {xen:phrase bdAttachButton_attach}}",]]></replace>
+    </modification>
+    <modification template="editor_js_setup" modification_key="bdattachbutton_editor_js_setup_scripts" description="Include attachment scripts." execution_order="10" enabled="1" action="str_replace">
       <find><![CDATA[<xen:require js="js/xenforo/bb_code_edit.js" />]]></find>
       <replace><![CDATA[$0
 
@@ -36,6 +43,15 @@
 <xen:else />
 	<xen:require js="js/xenforo/attachment_editor.js" />
 </xen:if>]]></replace>
+    </modification>
+    <modification template="editor_ui.css" modification_key="bdattachbutton_editor_ui_css" description="Add icon for our button." execution_order="10" enabled="1" action="str_replace">
+      <find><![CDATA[/*BUTTONS*/]]></find>
+      <replace><![CDATA[$0
+
+html .redactor_toolbar li a.redactor_btn_bdAttachButton_attach {
+	background-image: url('{xen:property imagePath}/bdAttachButton/attach.png');
+	background-position: center center;
+}]]></replace>
     </modification>
   </public_template_modifications>
   <bb_code_media_sites/>
