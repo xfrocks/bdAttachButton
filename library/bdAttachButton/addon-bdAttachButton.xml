@@ -53,6 +53,16 @@ html .redactor_toolbar li a.redactor_btn_bdAttachButton_attach {
 	background-position: center center;
 }]]></replace>
     </modification>
+    <modification template="uix_icons.css" modification_key="bdattachbutton_uix_icons_css" description="Use icon font (UIX)." execution_order="10" enabled="1" action="str_replace">
+      <find><![CDATA[<xen:if is="{xen:property uix_rteIconFont}">]]></find>
+      <replace><![CDATA[$0
+
+	html .redactor_toolbar li a.redactor_btn_bdAttachButton_attach {background-image: none;}
+	html .redactor_toolbar li a.redactor_btn_bdAttachButton_attach:before
+	{
+		content: "\f093";
+	}]]></replace>
+    </modification>
   </public_template_modifications>
   <bb_code_media_sites/>
   <bb_codes/>
