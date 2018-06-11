@@ -71,6 +71,8 @@
                 return;
             }
 
+            $form.find('.OverlayCloser').click(ed.restoreAndClose);
+
             $form.insertAfter($formContainer);
             ed.bdAttachButton_$form = $form;
 
